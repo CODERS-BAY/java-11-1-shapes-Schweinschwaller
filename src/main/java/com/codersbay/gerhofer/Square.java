@@ -2,33 +2,32 @@ package com.codersbay.gerhofer;
 
 import java.awt.*;
 
-public class Square extends Shape {
-    private double length;
+public class Square extends Rectangle {
 
     public Square(Color color, boolean isFilled, double length) {
-        super(color, isFilled);
-        this.length = length;
+        super(color, isFilled, length, length);
     }
 
     public double getLength() {
-        return length;
+        return super.getLength();
     }
 
     public void setLength(double length) {
-        this.length = length;
+        super.setLength(length);
+        super.setWidth(length);
     }
 
     public double getArea() {
-        if (this.length <= 0.0) {
+        if (super.getLength() <= 0.0) {
             throw new IllegalArgumentException("length is negativ.");
         }
-        return this.length * this.length;
+        return super.getLength() * super.getLength();
     }
 
     public double getPerimeter() {
-        if (this.length <= 0.0) {
+        if (super.getLength() <= 0.0) {
             throw new IllegalArgumentException("length is negativ.");
         }
-        return this.length * 4;
+        return super.getLength() * 4;
     }
 }
